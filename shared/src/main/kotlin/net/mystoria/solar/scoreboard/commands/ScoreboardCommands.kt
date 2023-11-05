@@ -32,9 +32,9 @@ object ScoreboardCommands : FrameworkCommand() {
                 text("The scoreboard system has been toggled ", "#FFFFFF")
 
                 if (config.enabled) {
-                    text("on ", Tailwind.GREEN_500)
+                    text("on", Tailwind.GREEN_500)
                 } else {
-                    text("off ", Tailwind.RED_500)
+                    text("off", Tailwind.RED_500)
                 }
 
                 text(".", "#FFFFFF")
