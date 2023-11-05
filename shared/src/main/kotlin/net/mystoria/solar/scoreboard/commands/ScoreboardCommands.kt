@@ -7,6 +7,7 @@ import net.revive.framework.command.FrameworkCommand
 import net.revive.framework.commands.annotation.CommandAlias
 import net.revive.framework.commands.annotation.CommandPermission
 import net.revive.framework.commands.annotation.Description
+import net.revive.framework.commands.annotation.Subcommand
 import net.revive.framework.constants.Tailwind
 import net.revive.framework.flavor.annotation.Inject
 import net.revive.framework.sender.FrameworkPlayer
@@ -21,7 +22,7 @@ object ScoreboardCommands : FrameworkCommand() {
     @Inject
     lateinit var config: ScoreboardConfig
 
-    @CommandAlias("toggle")
+    @Subcommand("toggle")
     @Description("Enables/disables the scoreboard system.")
     fun toggle(sender: FrameworkSender<*>) {
         config.enabled = config.enabled.not() // toggle the scoreboard board
@@ -41,7 +42,7 @@ object ScoreboardCommands : FrameworkCommand() {
         )
     }
 
-    @CommandAlias("editor|edit")
+    @Subcommand("editor|edit")
     @Description("Edit all the scoreboard lines inside a menu.")
     fun editor(sender: FrameworkPlayer) {
         // TODO: add a method to open menu in FrameworkPlayer
