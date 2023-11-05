@@ -16,13 +16,8 @@ pipeline {
                 script {
                     sh 'chmod +x gradlew'
 
-                    if (env.BRANCH_NAME == 'main') {
-                        echo "Building master branch"
-                        sh './gradlew clean build publishMavenJavaPublicationToMystoriaProdRepository --stacktrace'
-                    } else {
-                        echo "Building feature or other branch: ${env.BRANCH_NAME}"
-                        sh './gradlew clean build publishMavenJavaPublicationToMystoriaDevRepository --stacktrace'
-                    }
+                    echo "Building master branch"
+                    sh './gradlew clean build --stacktrace'
                 }
 
                 archiveArtifacts artifacts: '**/solar-*.jar', fingerprint: true, followSymlinks: false, onlyIfSuccessful: true
