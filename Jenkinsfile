@@ -16,7 +16,7 @@ pipeline {
                 script {
                     sh 'chmod +x gradlew'
 
-                    if (env.BRANCH_NAME == 'master') {
+                    if (env.BRANCH_NAME == 'main') {
                         echo "Building master branch"
                         sh './gradlew clean build publishMavenJavaPublicationToMystoriaProdRepository --stacktrace'
                     } else {
